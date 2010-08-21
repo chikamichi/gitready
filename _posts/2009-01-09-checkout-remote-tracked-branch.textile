@@ -1,15 +1,15 @@
 ---
 published: false
 layout: post
-title: checkout tracked remote branch
+title: checkout d'une branche distante suivie
 category: intermediate
 ---
 
-I frequently need to do this when setting up or syncing my various machines, and I seem to forget the command all the time. So let's say you've got more than one branch on your remote, and you want to bring it down into your local repository as well:
+Voici quelque chose qu'il m'arrive assez souvent de faire, notamment pour mettre à jour ou synchroniser différentes machines. J'oublie la commande régulièrement. Admettons que vous ayiez plusieurs branches sur le remote, et que vous souhaitiez les rappatrier dans le dépôt local :
 
 p=. !http://gitready.com/images/branches.png!
 
-Viewing information on the remote should look something like this:
+Les infos sur le remote sont accessibles de la façon suivante :
 
 <pre>
 $ git remote show origin
@@ -22,17 +22,17 @@ $ git remote show origin
         haml master
 </pre>
 
-Luckily, the command syntax for this is quite simple:
+La commande pour réaliser la synchro des branches disponible sur le remote est en fait plutôt simple :
 
 <pre>
 git checkout --track -b 
   <local branch> <remote>/<tracked branch>
 </pre>
 
-So in my case, I used this command:
+Pour mon exemple, nous pourrions donc faire :
 
 @git checkout --track -b haml origin/haml@
 
-You can also use a simpler version:
+Il existe en fait une syntaxe plus concise :
 
 @git checkout -t origin/haml@
